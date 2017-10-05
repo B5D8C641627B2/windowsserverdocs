@@ -48,7 +48,7 @@ When you have the answers for these questions, you can start configuring the fol
 -   **Firewall** if you identified that WSUS is behind a corporate firewall, there are some additional steps that must be done at the edge device to properly allow WSUS traffic.
 
 ### 2.1.1. Connection from the WSUS server to the Internet
-if there is a corporate firewall between WSUS and the Internet, you might have to configure that firewall to ensure WSUS can obtain updates. To obtain updates from Microsoft Update, the WSUS server uses port 443 for HTTPS protocol. Although most of corporate firewalls allow this type of traffic, there are some companies that restrict Internet access from the servers due the company's security policies. if your company restricts access, you need to obtain authorization to allow Internet access from WSUS to the following list of URLs:
+If there is a corporate firewall between WSUS and the Internet, you might have to configure that firewall to ensure WSUS can obtain updates. To obtain updates from Microsoft Update, the WSUS server uses port 443 for HTTPS protocol. Although most of corporate firewalls allow this type of traffic, there are some companies that restrict Internet access from the servers due the company's security policies. if your company restricts access, you need to obtain authorization to allow Internet access from WSUS to the following list of URLs:
 
 -   http://windowsupdate.microsoft.com
 
@@ -173,11 +173,11 @@ This procedure assumes that you are using the WSUS Configuration Wizard, which a
 
     2.  Synchronize from another Windows Server Update Services server
 
-        -   if you choose to synchronize from another WSUS server, specify the server name and the port on which this server will communicate with the upstream server.
+        -   If you choose to synchronize from another WSUS server, specify the server name and the port on which this server will communicate with the upstream server.
 
         -   To use SSL, select the **Use SSL when synchronizing update information** check box. The servers will use port 443 for synchronization. (Make sure that this server and the upstream server support SSL).
 
-        -   if this is a replica server, select the **This is a replica of the upstream server** check box.
+        -   If this is a replica server, select the **This is a replica of the upstream server** check box.
 
 5.  After selecting the proper options for your deployment, click **Next** to proceed.
 
@@ -186,7 +186,7 @@ This procedure assumes that you are using the WSUS Configuration Wizard, which a
     > [!IMPORTANT]
     > You must complete this step if you identified that WSUS needs a proxy server to have Internet access.
 
-7.  if you want to connect to the proxy server by using specific user credentials, select the **Use user credentials to connect to the proxy server** check box, and then type the user name, domain, and password of the user in the corresponding boxes. if you want to enable basic authentication for the user who is connecting to the proxy server, select the **Allow basic authentication (password is sent in cleartext)** check box.
+7.  If you want to connect to the proxy server by using specific user credentials, select the **Use user credentials to connect to the proxy server** check box, and then type the user name, domain, and password of the user in the corresponding boxes. if you want to enable basic authentication for the user who is connecting to the proxy server, select the **Allow basic authentication (password is sent in cleartext)** check box.
 
 8.  Click **Next**. On the **Connect to Upstream Server** page, click **start Connecting**.
 
@@ -195,13 +195,13 @@ This procedure assumes that you are using the WSUS Configuration Wizard, which a
 10. On the **Choose Languages** page, you have the option to select the languages from which WSUS will receive updates - all languages or a subset of languages. selecting a subset of languages will save disk space, but it is IMPORTANT to choose all of the languages that are needed by all the clients of this WSUS server. if you choose to get updates only for specific languages, select **Download updates only in these languages**, and then select the languages for which you want updates; otherwise, leave the default selection.
 
     > [!WARNING]
-    > if you select the option **Download updates only in these languages**, and this server has a downstream WSUS server connected to it, this option will force the downstream server to also use only the selected languages.
+    > If you select the option **Download updates only in these languages**, and this server has a downstream WSUS server connected to it, this option will force the downstream server to also use only the selected languages.
 
 11. After selecting the appropriate language options for your deployment, click **Next** to continue.
 
 12. The **Choose Products** page allows you specify the products for which you want updates. select product categories, such as Windows, or specific products, such as Windows Server 2008. selecting a product category selects all the products in that category.
 
-13. select the appropriate product options for your deployment, and then click **Next**.
+13. Select the appropriate product options for your deployment, and then click **Next**.
 
 14. On the **Choose Classifications** page, select the update classifications that you want to obtain. Choose all the classifications or a subset of them, and then click **Next**.
 
@@ -222,7 +222,7 @@ This procedure assumes that you are using the WSUS Configuration Wizard, which a
 Now that you have performed the basic WSUS configuration, read the next sections for more details about changing the settings by using WSUS Management Console.
 
 ## <a name="BKMK_ConfigcomputerGroups"></a>2.3. Configure WSUS computer groups
-computer groups are an IMPORTANT part of Windows Server Update Services (WSUS) deployments. Computer groups permit you to test and target updates to specific computers. There are two default computer groups: All computers and Unassigned computers. By default, when each client computer first contacts the WSUS server, the server adds that client computer to both of these groups.
+Computer groups are an IMPORTANT part of Windows Server Update Services (WSUS) deployments. Computer groups permit you to test and target updates to specific computers. There are two default computer groups: All computers and Unassigned computers. By default, when each client computer first contacts the WSUS server, the server adds that client computer to both of these groups.
 
 You can create as many custom computer groups as you need to manage updates in your organization. As a best practice, create at least one computer group to test updates before you deploy them to other computers in your organization.
 
@@ -257,7 +257,7 @@ Use the following procedures to configure Automatic Updates for client computers
 -   [2.3. Configure computer groups](2-configure-wsus.md#BKMK_ConfigcomputerGroups) in this topic
 
 ### <a name="BKMK_ConfigureAU"></a>Configure Automatic Updates in Group Policy
-if you have set up active directory in your network, you can configure one or multiple computers simultaneously by including them in a Group Policy Object (GPO), and then configuring that GPO with WSUS settings. We recommend that you create a new GPO that contains only WSUS settings.
+If you have set up active directory in your network, you can configure one or multiple computers simultaneously by including them in a Group Policy Object (GPO), and then configuring that GPO with WSUS settings. We recommend that you create a new GPO that contains only WSUS settings.
 
 Link this WSUS GPO to an active directory container that is appropriate for your environment. In a simple environment, you might link a single WSUS GPO to the domain. In a more complex environment, you might link multiple WSUS GPOs to several organizational units (OUs), which will enable you to apply different WSUS policy settings to different types of computers.
 
@@ -279,7 +279,7 @@ Link this WSUS GPO to an active directory container that is appropriate for your
 
     -   **Allow local admin to choose setting**. This option lets local administrators to use Automatic Updates in Control Panel to select a configuration option. For example, they can choose a scheduled installation time. Local administrators cannot disable Automatic Updates.
 
-5.  select **Enable client-side targeting**, select **Enabled**, and then type the name of the WSUS computer group to which you want to add this computer in the **Target group name for this computer** box.
+5.  Select **Enable client-side targeting**, select **Enabled**, and then type the name of the WSUS computer group to which you want to add this computer in the **Target group name for this computer** box.
 
     > [!NOTE]
     > **Enable client-side targeting** enables client computers to add themselves to target computer groups on the WSUS server, when Automatic Updates is redirected to a WSUS server. if the status is set to Enabled, this computer will identify itself as a member of a particular computer group when it sends information to the WSUS server, which uses it to determine which updates are deployed to this computer. This setting indicates to the WSUS server which group the client computer will use. You must create the group on the WSUS server, and add domain-member computers to that group.
